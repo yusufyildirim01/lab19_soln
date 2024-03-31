@@ -1,6 +1,12 @@
 (*
                              CS 51 Lab 19
                Conway's Game of Life Cellular Automaton
+
+Objective:
+
+This lab provides practice with *refactoring a complex system* in
+order to break up the complex system into separate simpler systems,
+while generalizing them as well.
  *)
 (* 
                                SOLUTION
@@ -9,16 +15,16 @@
 module G = Graphics ;;
   
 (* Automaton parameters *)
-let cGRID_SIZE = 100 ;;       (* width and height of grid in cells *)
-let cSPARSITY = 5 ;;          (* inverse of proportion of cells initially live *)
-let cRANDOMNESS = 0.00001 ;;  (* probability of randomly modifying a cell *)
+let cGRID_SIZE = 100 ;;      (* width and height of grid in cells *)
+let cSPARSITY = 5 ;;         (* inverse of proportion of cells initially live *)
+let cRANDOMNESS = 0.00001 ;; (* probability of randomly modifying a cell *)
 
 (* Rendering parameters *)
 let cCOLOR_LIVE = G.rgb 93 46 70 ;;       (* color to depict live cells *)
 let cCOLOR_DEAD = G.rgb 242 227 211 ;;    (* background color *)
 let cCOLOR_LEGEND = G.rgb 173 106 108 ;;  (* color for textual legend *)
-let cSIDE = 8 ;;              (* width and height of cells in pixels *)
-let cRENDER_FREQUENCY = 1     (* how frequently grid is rendered (in ticks) *) ;;
+let cSIDE = 8 ;;             (* width and height of cells in pixels *)
+let cRENDER_FREQUENCY = 1    (* how frequently grid is rendered (in ticks) *) ;;
 
 (* Font specification for rendering the legend. OCaml font handling is
    platform dependent, so we leave this as `None`, but we provide the
@@ -139,7 +145,7 @@ module Aut = Cellular.Automaton (LifeSpec) ;;
 (* Some initial grids *)
 
 (* random_grid count -- Returns a grid with cells set to live at
-   `count` random locations. *)
+   `count` random locations chosen independently with replacement. *)
 let random_grid count =
   let the_grid = Aut.current_grid in
   for _ = 1 to count do

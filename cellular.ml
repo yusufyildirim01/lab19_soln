@@ -8,11 +8,11 @@
 
 module G = Graphics ;;
 
-(***********************************************************************
+    (***************************************************************
     Do not change either of the two module type signatures in this
-    file. Doing so will likely cause your code to not to compile
+    file. Doing so will likely cause your code not to compile
     against our unit tests. 
-***********************************************************************)
+    ***************************************************************)
 
 (*......................................................................
   Specifying automata 
@@ -43,8 +43,10 @@ module type AUT_SPEC =
     val cell_color : state -> G.color
                                (* color for each state *)
     val legend_color : G.color (* color to render legend *)
-    val font : string option   (* optional font for legend as per Graphics module *)
-    val render_frequency : int (* how frequently grid is rendered (in ticks) *)
+    val font : string option   (* optional font for legend as per 
+                                  Graphics module *)
+    val render_frequency : int (* how frequently grid is rendered
+                                  (in ticks) *)
   end ;;
 
 (*......................................................................
