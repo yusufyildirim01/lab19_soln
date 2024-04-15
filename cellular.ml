@@ -17,6 +17,7 @@ module G = Graphics ;;
 (*......................................................................
   Specifying automata 
 
+  
   A cellular automaton (CA) is a square grid of cells each in a
   specific state. The grid is destructively updated according to an
   update rule. The evolving state of the CA can be visualized by
